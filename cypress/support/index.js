@@ -12,3 +12,10 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
+
+// get iframe and retry until the body element is not empty
+Cypress.Commands.add('frameLoaded', selector => {
+  return cy
+  .get(selector)
+  .its('0.contentDocument.body').should('not.be.empty')
+})

@@ -2,6 +2,6 @@
   "url": "https://www.mailinator.com",
   "recipient": "cypresstestproject",
   "to": "cypresstestproject@mailinator.com",
-  "subject": "Cypress: test email",
-  "body": "This is a body of our test email"
+  "subject": "Cypress: test Nov22",
+  "body": "This is a body of our test email: Nov22"
 }

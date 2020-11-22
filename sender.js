@@ -18,6 +18,7 @@ function send(to, subject, body) {
     authorize(JSON.parse(content), sendMessage, to, subject, body);
   });
 }
+
 function authorize(credentials, callback, to, subject, body) {
   const {client_secret, client_id, redirect_uris} = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);

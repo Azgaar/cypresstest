@@ -9,9 +9,9 @@ describe('Mailinator email body extractor', () => {
   })
 
   it('Opens recipient mailbox, locates email and logs email body to console', () => {
-    // following best practices, get elements by attribute that's unlikely to be changed
-    cy.get('header #addOverlay').type(recipient)
-    cy.get('header #go-to-public').click()
+    // get elements by id, no better stable selectors
+    cy.get('#addOverlay').type(recipient)
+    cy.get('#go-to-public').click()
 
     // verify url contains mailbox
     cy.url().should('include', recipient)
@@ -22,20 +22,17 @@ describe('Mailinator email body extractor', () => {
     // verify url contains 'msgpane'
     cy.url().should('include', 'msgpane')
 
-    // email body is in iframe, which is not fully supported by Cypress
-    // wait for contentDocument load and ONLY then query for body div
-    // see https://github.com/cypress-io/cypress/issues/136
-    cy.get('iframe#msg_body').wait(2000).then(function($iframe) {
+    // wait for iframe load, custom command in index.js, not supported by cypress by default
+    cy.frameLoaded('iframe#msg_body')
+    cy.get('iframe#msg_body').then(function($iframe) {
       const $emailBody = $iframe.contents().find('body') // this is jQuery in cypress
-
-      // get DOM element from jQuery and take text
-      const text = $emailBody[0].innerText?.trim()
+      const text = $emailBody.text()
 
       // log text to dev and Cypress console
       console.log(text)
       cy.log(text)
 
-      // asset text is equal to body of sent email
+      // assert text is equal to body of sent email
       expect(text).to.equal(body)
     })
   })
