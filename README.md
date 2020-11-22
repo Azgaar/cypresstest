@@ -10,14 +10,14 @@ CypressTest requires [Node.js](https://nodejs.org/) v10.15+ to run.
 Clone repository and install dependencies (cypress and googleapis).
 
 ```sh
-$ git clone https://github.com/guiyomh/cypresstest.git
+$ git clone https://github.com/Azgaar/cypresstest.git
 $ cd cypresstest
 $ npm install
 ```
 
 ## Usage
 
-Run `sender.js` to send a test email via gmail api and run cypress test in background mode:
+Run `sender.js` to send a test email via gmail api and run cypress test in background mode. You will need access token to use gmail api. I can send it separately or a new one can be generated (it will require manual step from my side):
 
 ```sh
 $ npm test
