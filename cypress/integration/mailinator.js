@@ -1,5 +1,4 @@
-// load fixture
-const {url, recipient, subject, body} = require('../fixtures/mailinator.json')
+const {url, recipient, subject, body} = require('../fixtures/mailinator.json') // load test data
 
 describe('Mailinator email body extractor', () => {
   beforeEach(() => {

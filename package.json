@@ -5,7 +5,7 @@
   "scripts": {
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "node sender.js & npm run cy:run"
+    "test": "node index.js & npm run cy:run"
   },
   "keywords": [
     "cypress",

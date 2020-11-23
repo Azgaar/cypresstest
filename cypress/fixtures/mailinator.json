@@ -1,7 +1,1 @@
-{
-  "url": "https://www.mailinator.com",
-  "recipient": "cypresstestproject",
-  "to": "cypresstestproject@mailinator.com",
-  "subject": "Cypress: test Nov22",
-  "body": "This is a body of our test email: Nov22"
-}
+{"url":"https://www.mailinator.com","recipient":"cypresstestproject","to":"cypresstestproject@mailinator.com","subject":"Cypress Test: 2020-11-23T20:08:34.369Z","body":"This is an email body. Sent on 2020-11-23T20:08:34.369Z"}

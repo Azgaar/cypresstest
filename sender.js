@@ -3,15 +3,7 @@ const readline = require('readline');
 const {google} = require('googleapis');
 const TOKEN_PATH = 'token.json';
 
-console.log('Gmail API email sender');
-fs.readFile('cypress/fixtures/mailinator.json', (err, rawdata) => {
-  if (err) return console.log('Error loading fixture file:', err);
-  const {to, subject, body} = JSON.parse(rawdata);
-  console.log('To:', to, '\r\nSubject:', subject, '\r\nBody:', body);
-  send(to, subject, body);
-});
-
-function send(to, subject, body) {
+module.exports.send = function (to, subject, body) {
   fs.readFile('credentials.json', (err, content) => {
     if (err) return console.log('Error loading client secret file:', err);
     // authorize a client with loaded credentials, then call the Gmail API
@@ -53,7 +45,7 @@ function sendMessage(auth, to, subject, body) {
   const raw = makeBody(to, 'maxganiev1990@gmail.com', subject, body);
   gmail.users.messages.send({auth: auth, userId: 'me', resource: {raw: raw}}, (err, res) => {
     if (err) return console.log(err);
-    console.log("Email is sent. Status", res.status);
+    console.log("Gmail API. Email is sent. Status", res.status);
   });
 }
 
