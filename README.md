@@ -17,7 +17,7 @@ $ npm install
 
 ## Usage
 
-Run `sender.js` to send a test email via gmail api and run cypress test in background mode. You will need access token to use gmail api. I can send it separately or a new one can be generated (it will require manual step from my side):
+Run `index.js` to generate test email and send it via gmail api. Then run cypress test in background mode. You will need access token to use gmail api. I can send it separately or a new one can be generated (it will require manual step from my side):
 
 ```sh
 $ npm test
